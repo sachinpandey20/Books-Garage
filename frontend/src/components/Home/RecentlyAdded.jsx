@@ -5,15 +5,7 @@ import Loader from "../Loader/Loader";
 const RecentlyAdded = () => {
   const [Data, setData] = useState();
   const [error, setError] = useState(null);
-  //   useEffect(() => {
-  //     const fetch = async () => {
-  //       const response = await axios.get(
-  //         "http://localhost:1000/api/v1/get-recent-books"
-  //       );
-  //       console.log(response);
-  //     };
-  //     fetch();
-  //   }, []);
+
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -22,7 +14,7 @@ const RecentlyAdded = () => {
           {
             headers: {
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoQ2xhaW1zIjpbeyJuYW1lIjoidGVzdCJ9LHsicm9sZSI6InVzZXIifV0sImlhdCI6MTcxOTAwNzQwNCwiZXhwIjoxNzIxNTk5NDA0fQ.edEfOtIYfQscd-QeNnEAESgTJEI5_jAbwvvroiXZ4mw", // Include your JWT token here
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoQ2xhaW1zIjpbeyJuYW1lIjoiYWRtaW4ifSx7InJvbGUiOiJhZG1pbiJ9XSwiaWF0IjoxNzIxNjMzNTc5LCJleHAiOjE3MjQyMjU1Nzl9.6YmbbBMxoxHweFojATmTv1jnI9EtuDVWQyFHnicijnU", // Include your JWT token here
             },
           }
         );

@@ -67,7 +67,7 @@ router.post("/sign-in", async (req, res) => {
         const token = jwt.sign({ authClaims }, process.env.JWT_SECRET, {
           expiresIn: "30d",
         });
-        res.status(200).json({ id: existingUser._id, role: existingUser.role, token: token });
+        res.status(200).json({ id: existingUser._id, role: existingUser.role, token: token, message: "LoggedIn Successfully" });
       } else {
         res.status(400).json({ message: "Inavlid credentials" });
       }
