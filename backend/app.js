@@ -9,7 +9,10 @@ const Favourite = require("./routes/favourite");
 const Cart = require("./routes/cart");
 const Order = require("./routes/order");
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  credentials: true
+}));
 //Routes 
 app.use("/api/v1",User);
 app.use("/api/v1",Books);
@@ -21,6 +24,5 @@ app.get("/",(req, res) => {
 });
 
 //Creating Port
-app.listen(process.env.PORT, () => {
-    console.log(`Server Started at port ${process.env.PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
