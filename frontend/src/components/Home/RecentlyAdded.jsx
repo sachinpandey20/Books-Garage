@@ -6,20 +6,25 @@ const RecentlyAdded = () => {
   const [Data, setData] = useState();
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+    const headers = {
+    id: localStorage.getItem("id"),
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+  };
+
+   useEffect(() => {
     const fetch = async () => {
       try {
+        const token = localStorage.getItem("token");
+        const id = localStorage.getItem("id");
+
+        const config = token
+          ? { headers: { id, authorization: `Bearer ${token}` } }
+          : {};
+
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-recent-books",
-          {
-            headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoQ2xhaW1zIjpbeyJuYW1lIjoiYWRtaW4ifSx7InJvbGUiOiJhZG1pbiJ9XSwiaWF0IjoxNzIxNjMzNTc5LCJleHAiOjE3MjQyMjU1Nzl9.6YmbbBMxoxHweFojATmTv1jnI9EtuDVWQyFHnicijnU", // Include your JWT token here
-            },
-          }
-        );
+          "http://localhost:1000/api/v1/get-recent-books");
+
         setData(response.data.data);
-        //  console.log(response.data.data);
       } catch (err) {
         setError(err.message);
         console.error("Error fetching the recent books:", err);
@@ -27,6 +32,7 @@ const RecentlyAdded = () => {
     };
     fetch();
   }, []);
+
   return (
     <div className="mt-8 px-4 ">
       <h4 className="text-3xl text-yellow-100">Recently added books</h4>

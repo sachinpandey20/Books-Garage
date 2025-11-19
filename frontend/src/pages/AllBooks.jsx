@@ -5,22 +5,15 @@ import axios from "axios";
 const AllBooks = () => {
   const [Data, setData] = useState();
   const [error, setError] = useState(null);
-  // const headers = {
-  //   id: localStorage.getItem("id"),
-  //   authorization: `Bearer ${localStorage.getItem("token")}`,
-  // };
+  const headers = {
+    id: localStorage.getItem("id"),
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+  };
   useEffect(() => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-all-books",
-          {
-            headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoQ2xhaW1zIjpbeyJuYW1lIjoiYWRtaW4ifSx7InJvbGUiOiJhZG1pbiJ9XSwiaWF0IjoxNzIxNjMzNTc5LCJleHAiOjE3MjQyMjU1Nzl9.6YmbbBMxoxHweFojATmTv1jnI9EtuDVWQyFHnicijnU", // Include your JWT token here
-            },
-          }
-        );
+          "http://localhost:1000/api/v1/get-all-books");
         setData(response.data.data);
         //  console.log(response.data.data);
       } catch (err) {
@@ -29,7 +22,7 @@ const AllBooks = () => {
       }
     };
     fetch();
-  }, []);
+  }, [localStorage.getItem("id"), localStorage.getItem("token")]);
   return (
     <div className="bg-zinc-900 h-auto px-12 py-8 ">
       <h4 className="text-3xl text-yellow-100">All Books</h4>
