@@ -15,11 +15,11 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.1"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "devDependencies": {
     "nodemon": "^2.0.22"
-  },
-  "engines": {
-    "node": ">=14.0.0"
   },
   "keywords": [],
   "author": "",
