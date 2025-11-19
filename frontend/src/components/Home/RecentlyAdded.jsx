@@ -22,7 +22,7 @@ const RecentlyAdded = () => {
           : {};
 
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-recent-books");
+          "https://books-garage.onrender.com/api/v1/get-recent-books");
 
         setData(response.data.data);
       } catch (err) {

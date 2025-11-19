@@ -23,7 +23,7 @@ const Login = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:1000/api/v1/sign-in",
+          "https://books-garage.onrender.com/api/v1/sign-in",
           Values
         );
         //alert(response.data.message);
@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <div className="bg-zinc-900 px-12 py-32 flex items-center justify-center">
       <div className="bg-zinc-800 rounded-lg px-8 py-5 w-full md:w-3/6 lg:w-2/6">
-        <p className="text-zinc-200 text-xl font-bold">Sign Up</p>
+        <p className="text-zinc-200 text-xl font-bold">Log In</p>
         <div className="mt-4">
           <div>
             <label htmlFor="" className="text-zinc-400">

@@ -13,7 +13,7 @@ const AllBooks = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-all-books");
+          "https://books-garage.onrender.com/api/v1/get-all-books");
         setData(response.data.data);
         //  console.log(response.data.data);
       } catch (err) {
